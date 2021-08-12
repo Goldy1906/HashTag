@@ -4,8 +4,8 @@ from . import views
 app_name="app"
 urlpatterns=[
      path('', views.index, name='index'),
-     path('<str:name>/',views.download, name='download'),
-     
+    #  path('<str:name>/',views.download, name='download'),
+     path('download/',views.download, name='download'),
  ]
 
   # time.sleep(5)

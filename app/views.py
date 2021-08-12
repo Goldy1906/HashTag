@@ -13,7 +13,7 @@ def index(request):
     if request.method=="POST":
         getin=Getinfo()
         hashtag= request.POST.get('hashtag')
-        tweetcount= request.POST.get('tweetcount')
+        tweetcount= request.POST.get('count')
         run([sys.executable,'E:\\project Shaky\\shaky\\dataset.py',hashtag,tweetcount], shell=False, stdout=PIPE)
         getin.hashtag=hashtag
         getin.tweetcount=tweetcount
@@ -23,8 +23,8 @@ def index(request):
         return render(request,'index.html',context)
     return render(request, 'index.html')
 
-def download(request, name):
-    filepath = 'dataset.py'
+def download(request):
+    filepath = 'dataset.zip'
     return serve(request, os.path.basename(filepath), os.path.dirname(filepath))
     
     
